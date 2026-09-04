@@ -1318,8 +1318,9 @@ function setAvatar(url){
   ['','Mob'].forEach(s=>{
     const img=document.getElementById('avaImg'+s);
     const ph=document.getElementById(s?'avaPh'+s:'avaPlaceholder');
-    if(url){img.src=url;img.style.display='block';ph.style.display='none';}
-    else{img.style.display='none';ph.style.display='block';}
+    if(!img)return;
+    if(url){img.src=url;img.style.display='block';if(ph)ph.style.display='none';}
+    else{img.style.display='none';if(ph)ph.style.display='block';}
   });
 }
 
